@@ -1,6 +1,6 @@
 # IE CSS Bugs
 
-点击查看 [IE CSS Bugs](https://yanxyz.github.io/css-ie-bugs)
+点击查看 [IE CSS Bugs](https://yanxyz.github.io/ie-css-bugs)
 
 有错误或补充，欢迎提交 issue 。
 
