@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>IE CSS bugs</title>
+  <meta name="description" content="常见的 IE CSS bugs"  />
+  <meta name="author" content="https://github.com/yanxyz/ie-css-bugs" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<h1 id="ie-css-bugs">IE CSS bugs</h1>
+<p>这里整理一些常见的 IE CSS bugs。有错误或补充的地方，欢迎<a href="https://github.com/yanxyz/ie-css-bugs">反馈</a>。</p>
+<p>下面列表按 IE 版本从高到低排列。没有指明版本号的，表示到目前的 IE 版本都有这种问题。</p>
+
+  <div id="toc">
+    <ul>
+    <li><a href="#ie-select-cursor">IE 下拉框选项的光标被改变</a></li>
+    <li><a href="#ie-custom-cursor">IE 自定义光标相对路径错误</a></li>
+    <li><a href="#ie-th-text-align">IE8+ 下 <code>&lt;th&gt;</code> 不能继承 text-align</a></li>
+    <li><a href="#ie-a-img">IE6-10 下 <code>&lt;img&gt;</code> 在 <code>&lt;a&gt;</code> 内时有边框</a></li>
+    <li><a href="#ie11-input-cursor">IE11 输入框不能改变光标</a></li>
+    <li><a href="#ie10-link-grey-background">IE10 a:active 时有灰色背景</a></li>
+    <li><a href="#ie8-focus-selector">IE8 下由 <code>:focus</code> 与其它选择符组成的复合选择符无效</a></li>
+    <li><a href="#ie8-first-line-important">IE8 下 <code>:first-line</code> 规则内 !important 被忽略</a></li>
+    <li><a href="#ie7-float-margin-bottom">IE7 下浮动元素的 margin-bottom 被忽略</a></li>
+    <li><a href="#ie6-float-right">IE6-7 下元素 <code>float:right</code> 时换行</a></li>
+    <li><a href="#ie6-z-index">IE6-7 下定位元素层叠错误</a></li>
+    <li><a href="#ie6-overflow-bug">IE6-7 元素 <code>position: relative</code> 溢出</a></li>
+    <li><a href="#ie6-staircase">IE6-7 下 <code>&lt;li&gt;</code> 不浮动而其子元素浮动，则列表呈阶梯状排列</a></li>
+    <li><a href="#ie6-list-width">IE6-7 下列表(ul, ol)指定宽度后列表项标记消失</a></li>
+    <li><a href="#ie6-button-padding">IE6-7 下按钮两侧有莫名空白</a></li>
+    <li><a href="#ie6-input-double-margin">IE6-7 下 <code>&lt;input&gt; &lt;textarea&gt;</code> margin 双倍</a></li>
+    <li><a href="#ie6-iframe-overflow-y">IE6-7 下 <code>&lt;iframe&gt; overflow-y: scroll</code> 时出现与滚动条等宽的空白</a></li>
+    <li><a href="#ie6-7-下-1px-dotted-border-表现同-dashed">IE6-7 下 1px dotted border 表现同 <code id="ie6-1px-border">dashed</code></a></li>
+    <li><a href="#ie6-double-margin">IE6 下浮动元素水平 margin 双倍</a></li>
+    <li><a href="#ie6-3px-jog">IE6 下非浮动块内的文字与相邻的浮动块之间有 3px 的间隙</a></li>
+    <li><a href="#ie6-expanding">IE6 下元素会扩展它的高宽以包含它的内容</a></li>
+    <li><a href="#ie6-vertical-spacing">IE6 下列表项包含块级子元素时下方出现空白</a></li>
+    <li><a href="#ie6-absolute-1px">IE6 下绝对定位 1px 误差</a></li>
+    <li><a href="#ie6-img-line-height">IE6 下 文本与 <code>&lt;img&gt;</code> 等在一起时不能用 line-height 垂直居中</a></li>
+    <li><a href="#ie6-small-height">IE6 认为元素至少一个字符（<code>font-size</code>）高，即使是空元素</a></li>
+    <li><a href="#ie6-important">IE6 !important 失效</a></li>
+    <li><a href="#ie6-multiple-class">IE6 multiple class bug</a></li>
+    <li><a href="#ie6-id-class">IE6 id-class bug</a></li>
+    </ul>
+  </div>
+  <h3 id="ie-select-cursor">IE 下拉框选项的光标被改变</h3>
+  <p>IE 下打开 <code>&lt;select&gt;</code> 时，位于其它元素之上的选项 <code>&lt;option&gt;</code>，它的光标被改成下面元素的。</p>
+  <p><a href="demo/ie-select-cursor/">演示</a></p>
+  <h3 id="ie-custom-cursor">IE 自定义光标相对路径错误</h3>
+  <p>在 CSS 文件中指定自定义光标的路径，相对路径在 IE 下是相对于文档的路径，而不是 CSS 文件的路径。</p>
+  <p><a href="demo/ie-custom-cursor/">演示</a></p>
+  <p>解决方案：在 CSS 中指定绝对路径。若不方便使用绝对路径，则只能在页面指定。</p>
+  <h3 id="ie-th-text-align">IE8+ 下 <code>&lt;th&gt;</code> 不能继承 text-align</h3>
+  <p><a href="demo/ie-th-text-align/">演示</a></p>
+  <p>解决方案：<code>th {text-align: inherit}</code></p>
+  <h3 id="ie-a-img">IE6-10 下 <code>&lt;img&gt;</code> 在 <code>&lt;a&gt;</code> 内时有边框</h3>
+  <p><a href="demo/ie-a-img/">演示</a></p>
+  <p>解决方案：<code>img {border: none}</code></p>
+  <h3 id="ie11-input-cursor">IE11 输入框不能改变光标</h3>
+  <p>我现在用的 IE 版本是 11.0.17，已修复。</p>
+  <h3 id="ie10-link-grey-background">IE10 a:active 时有灰色背景</h3>
+  <p>解决方案: <code>a:active {background-color: transparent;}</code>：</p>
+  <!-- #IE8 -->
+  <h3 id="ie8-focus-selector">IE8 下由 <code>:focus</code> 与其它选择符组成的复合选择符无效</h3>
+  <p>比如 <code>:focus span</code>，在 IE11 的 IE8 模式下有效，在 IE8 下无效。至于 IE6-7 本来就不支持 <code>:focus</code>。</p>
+  <p><a href="demo/ie8-focus-selector/">演示</a></p>
+  <h3 id="ie8-first-line-important">IE8 下 <code>:first-line</code> 规则内 !important 被忽略</h3>
+  <p><a href="demo/ie8-first-line-important/">演示</a></p>
+  <!-- #IE7 -->
+  <h3 id="ie7-float-margin-bottom">IE7 下浮动元素的 margin-bottom 被忽略</h3>
+  <p><a href="demo/ie7-float-margin-bottom/">演示</a></p>
+  <p>解决方案: 可考虑用父元素的 <code>padding-bottom</code></p>
+  <h3 id="ie6-float-right">IE6-7 下元素 <code>float:right</code> 时换行</h3>
+  <p>非浮动元素之后的元素 <code>float:right</code> 时换行。</p>
+  <p><a href="demo/ie6-float-right/">演示</a></p>
+  <p>解决方案：或者使用定位，或者将浮动元素放到前面，<a href="demo/ie6-float-right/1a.html">演示</a>。</p>
+  <h3 id="ie6-z-index">IE6-7 下定位元素层叠错误</h3>
+  <p>定位元素不指定 z-index 时它的默认值是 auto, 但是 IE6-7 下表现为 z-index: 0， 即产生新的层叠上下文，从而让层叠错误。</p>
+  <p><a href="demo/ie6-z-index/">演示</a></p>
+  <p>解决方案：给相关元素指定 z-index。</p>
+  <p>注意规划网页上的 z-index，不要使用太大的值。</p>
+  <h3 id="ie6-overflow-bug">IE6-7 元素 <code>position: relative</code> 溢出</h3>
+  <p>尽管父元素 <code>overflow: auto|scroll|hidden</code>, 子元素 <code>position: relative</code> 时仍然溢出。</p>
+  <p><a href="demo/ie6-overflow-bug/">演示</a></p>
+  <p>解决方案：父元素 <code>position: relative</code>，<a href="demo/ie6-overflow-bug/1a.html">演示</a></p>
+  <h3 id="ie6-staircase">IE6-7 下 <code>&lt;li&gt;</code> 不浮动而其子元素浮动，则列表呈阶梯状排列</h3>
+  <p><a href="demo/ie6-staircase/">演示</a></p>
+  <p>解决方案：</p>
+  <ul>
+  <li><code>&lt;li&gt;</code> 浮动, <a href="demo/ie6-staircase/1a.html">演示</a></li>
+  <li><code>li {display: inline}</code> <a href="demo/ie6-staircase/1b.html">演示</a></li>
+  </ul>
+  <h3 id="ie6-list-width">IE6-7 下列表(ul, ol)指定宽度后列表项标记消失</h3>
+  <p><a href="demo/ie6-list-width/">演示</a></p>
+  <p>无解决方案，不过一般都是自定义标记。</p>
+  <h3 id="ie6-button-padding">IE6-7 下按钮两侧有莫名空白</h3>
+  <p>按钮（<code>input:submit</code>, <code>input:reset</code>, <code>input:button</code>, <code>&lt;button&gt;</code>）随着文字的增多（或者水平 padding 增大)导致按钮两侧的空白越来越大，这实际上不是真实的 padding。</p>
+  <p><a href="demo/ie6-button-padding/">演示</a></p>
+  <p>解决方案： 按钮 <code>overflow:visible</code></p>
+  <p>另外随着宽度的加大，按钮圆角出现锯齿。</p>
+  <h3 id="ie6-input-double-margin">IE6-7 下 <code>&lt;input&gt; &lt;textarea&gt;</code> margin 双倍</h3>
+  <p>当 <code>&lt;input&gt; &lt;textarea&gt;</code> 父元素有 hasLayout 与 margin 时，它们会有双倍 margin。</p>
+  <p><a href="demo/ie6-input-double-margin/">演示</a></p>
+  <p>解决方案，使用负 margin</p>
+  <h3 id="ie6-iframe-overflow-y">IE6-7 下 <code>&lt;iframe&gt; overflow-y: scroll</code> 时出现与滚动条等宽的空白</h3>
+  <p><a href="demo/ie6-iframe-overflow-y/">演示</a></p>
+  <p>解决方案，只能去掉 <code>overflow-y: scroll</code></p>
+  <h3 id="ie6-7-下-1px-dotted-border-表现同-dashed">IE6-7 下 1px dotted border 表现同 <code id="ie6-1px-border">dashed</code></h3>
+  <p><a href="demo/ie6-1px-border/">演示</a></p>
+  <p>实际上各浏览器 border-style 有些差异。</p>
+  <!-- #IE6 -->
+  <h3 id="ie6-double-margin">IE6 下浮动元素水平 margin 双倍</h3>
+  <p>元素浮动时，水平 margin 双倍，竖直 margin 不会。</p>
+  <p><a href="demo/ie6-double-margin/">演示</a></p>
+  <p>修复方案：元素 <code>display: inline</code></p>
+  <h3 id="ie6-3px-jog">IE6 下非浮动块内的文字与相邻的浮动块之间有 3px 的间隙</h3>
+  <p><a href="demo/ie6-3px-jog/">演示</a></p>
+  <p>修复方案：</p>
+  <ul>
+  <li>让浮动块 margin -3px</li>
+  <li>让非浮动块浮动，<a href="demo/ie6-3px-jog/1a.html">演示</a></li>
+  </ul>
+  <h3 id="ie6-expanding">IE6 下元素会扩展它的高宽以包含它的内容</h3>
+  <p>IE6 这种表现类似于其它浏览器的 min-width/height 属性，可以利用这个特点来实现 min-width/height。但是有时会破坏布局，需要用 <code>overflow: hidden</code> 控制。</p>
+  <p><a href="demo/ie6-expanding/">演示</a></p>
+  <h3 id="ie6-vertical-spacing">IE6 下列表项包含块级子元素时下方出现空白</h3>
+  <p><a href="demo/ie6-vertical-spacing/">演示</a></p>
+  <p>解决方案比较多。比如：</p>
+  <ul>
+  <li>让子元素 hasLayout <a href="demo/ie6-vertical-spacing/1a.html">演示</a></li>
+  <li><code>li {display: inline}</code> <a href="demo/ie6-vertical-spacing/1b.html">演示</a></li>
+  </ul>
+  <h3 id="ie6-absolute-1px">IE6 下绝对定位 1px 误差</h3>
+  <p>当绝对定位的包含块的宽高为奇数时，它的 right bottom 会出现 1px 误差。</p>
+  <p><a href="demo/ie6-absolute-1px/">演示</a></p>
+  <p>解决方案，只能让包含块宽高为偶数。</p>
+  <h3 id="ie6-img-line-height">IE6 下 文本与 <code>&lt;img&gt;</code> 等在一起时不能用 line-height 垂直居中</h3>
+  <p>实现单行垂直居中，常用的办法是让容器 height 与 line-height 相等。但是容器内有 <code>&lt;img&gt;</code> <code>&lt;input&gt;</code> <code>&lt;textarea&gt;</code> <code>&lt;select&gt;</code> <code>&lt;object&gt;</code> 等，这个办法失效。</p>
+  <p><a href="demo/ie6-img-line-height/">演示</a></p>
+  <p>解决方案，对于 <code>&lt;img&gt;</code> 可以让后面的文本 <code>span {display: inline-block}</code>。</p>
+  <h3 id="ie6-small-height">IE6 认为元素至少一个字符（<code>font-size</code>）高，即使是空元素</h3>
+  <p><a href="demo/ie6-small-height/">演示</a></p>
+  <p>解决方案： 元素 <code>overflow: hidden</code>，<a href="demo/ie6-small-height/1a.html">演示</a></p>
+  <h3 id="ie6-important">IE6 !important 失效</h3>
+  <p>在同一个声明块内，同一个属性，无 !important 的值优先于前面有 !important 的值。</p>
+  <p><a href="demo/ie6-important/">演示</a></p>
+  <h3 id="ie6-multiple-class">IE6 multiple class bug</h3>
+  <p>比如 <code>.one.two</code>，表示同时有 class 值 one, two 的元素，IE6 只识别最后一个值 two，即相当于 <code>.two</code>。</p>
+  <p><a href="demo/ie6-multiple-class/">演示</a></p>
+  <h3 id="ie6-id-class">IE6 id-class bug</h3>
+  <p>比如：</p>
+  <pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#id.class1</span> <span class="kw">{}</span>
+  <span class="fl">#id.class2</span> <span class="kw">{}</span>
+  <span class="fl">#id.class3</span> <span class="kw">{}</span></code></pre>
+  <p>只有第一个 #id.class1 有效，后面的忽略。</p>
+  <p><a href="demo/ie6-id-class/">演示</a></p>
+  <a href="https://github.com/yanxyz/ie-css-bugs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+</body>
+</html>

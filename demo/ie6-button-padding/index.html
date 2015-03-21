@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+  input, button {
+    padding: 0 20px;
+  }
+  .fix {
+    overflow: visible;
+  }
+  </style>
+</head>
+<body>
+  <p>左为修复前，右为修复后</p>
+  <h2>input:submit</h2>
+  <input type="submit" value="Submit" />
+  <input type="submit" value="Submit" class="fix" />
+
+  <h2>input:button</h2>
+  <input type="button" value="Button" />
+  <input type="button" value="Button" class="fix" />
+
+  <h2>button</h2>
+  <button>Button</button>
+  <button class="fix">Button</button>
+
+</body>
+</html>

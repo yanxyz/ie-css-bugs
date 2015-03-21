@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+  .container {
+    width: 300px;
+  }
+
+  .one {
+    float: left;
+    width: 100px;
+    border: 1px solid red;
+  }
+
+  .two {
+    border: 1px solid red;
+  }
+
+  .demo2 .two {
+    zoom: 1;
+  }
+
+  </style>
+</head>
+<body>
+  <p>.two 文字左边有 3px 空隙</p>
+  <div class="container demo1">
+    <div class="one">one</div>
+    <div class="two">two</div>
+  </div>
+
+  <p>.two hasLayout后，块之间有 3px 空隙</p>
+  <div class="container demo2">
+    <div class="one">one</div>
+    <div class="two">two</div>
+  </div>
+</body>
+</html>

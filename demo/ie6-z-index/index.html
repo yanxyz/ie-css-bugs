@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+    .box1 {
+      position: relative;
+      width: 300px;
+      height: 100px;
+      background: blue;
+    }
+
+    .box2 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1;
+      width: 100px;
+      height: 30px;
+      background: yellow;
+    }
+
+    .box3 {
+      position: absolute;
+      top: 0;
+      left: 50px;
+      width: 30px;
+      height: 100px;
+      background: red;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box1">1
+    <div class="box2">2</div>
+  </div>
+  <div class="box3">3</div>
+  <p>box1 没有指定 z-index，这三个块在同一个层叠上下文中，box2 在 box3 上面。但是 IE6-7 下，box1 表现为 z-index: 0, 产生新的层叠上下文，box3 在 box2 上面。</p>
+</body>
+</html>

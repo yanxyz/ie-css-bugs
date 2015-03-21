@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+  .container {
+    width: 300px;
+  }
+
+  .one {
+    float: left;
+    width: 100px;
+    border: 1px solid red;
+  }
+
+  .two {
+    border: 1px solid red;
+  }
+
+  .demo2 .two {
+    zoom: 1;
+  }
+
+  /*fix*/
+  .demo1 .one {
+    _margin-right: -3px;
+  }
+
+  .demo2 .two {
+    float: left;
+  }
+
+  </style>
+</head>
+<body>
+  <p>.one margin-right: -3px</p>
+  <div class="container demo1">
+    <div class="one">one</div>
+    <div class="two">two</div>
+  </div>
+
+  <p>.two float: left</p>
+  <div class="container demo2">
+    <div class="one">one</div>
+    <div class="two">two</div>
+  </div>
+</body>
+</html>

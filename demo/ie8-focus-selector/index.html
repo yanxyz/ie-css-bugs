@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+  button:focus {
+    color: red;
+  }
+
+  :focus.text-input {
+    color: red;
+  }
+
+  button:focus span {
+    color: red;
+  };
+  </style>
+</head>
+<body>
+  <h2>button:focus</h2>
+  <button>点击我</button>
+
+  <h2>:focus.text-input</h2>
+  <input type="text" class="text-input" value="写点什么" />
+
+  <h2>button:focus span</h2>
+  <button><span>点击我</span></button>
+</body>
+</html>

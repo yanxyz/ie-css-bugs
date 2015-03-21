@@ -1,0 +1,39 @@
+body {
+  width: 700px;
+  margin: auto;
+  font: 14px/1.8 Verdana, Tahoma, sans-serif;
+  color: #3a3a3a;
+}
+
+a {
+  color: #FE5210;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #FE7110;
+}
+
+a:hover {
+  color: #FFA158;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin: 1.5em 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em 0;
+  line-height: 1.5;
+}
+
+p code {
+  padding: 1px 5px;
+  background: #eee;
+}
+
+pre.sourceCode {
+  padding: 1.0em 1.5em;
+  background: #eee;
+}
