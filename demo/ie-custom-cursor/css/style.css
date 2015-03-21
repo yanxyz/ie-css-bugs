@@ -1,0 +1,6 @@
+div {
+  width: 200px;
+  height: 200px;
+  background: #95CFEF;
+  cursor: url(move.cur), auto;
+}

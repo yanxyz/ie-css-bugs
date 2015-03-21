@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+  div {
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    text-align: center;
+  }
+  iframe {
+    overflow-x: hidden;
+    background-color: #fff;
+    width: 150px;
+  }
+  .frame1 {
+    overflow-y: scroll;
+  }
+  </style>
+</head>
+
+<body>
+  <h2>overflow-y: scroll;</h2>
+  <div>
+    <iframe class="frame1" src="frame.html"></iframe>
+  </div>
+  <h2>去掉 overflow-y: scroll;</h2>
+  <div>
+    <iframe class="frame2" src="frame.html"></iframe>
+  </div>
+</body>
+
+</html>

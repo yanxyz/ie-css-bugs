@@ -1,0 +1,11 @@
+# help: https://help.github.com/articles/ignoring-files
+
+# OS
+.DS_Store
+._*
+Thumbs.db
+.cache
+
+# Editor
+*.sublime-project
+*.sublime-workspace

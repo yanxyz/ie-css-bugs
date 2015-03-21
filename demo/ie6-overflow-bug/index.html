@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+    #parent {
+      width: 300px;
+      height: 150px;
+      border: 1px solid #36f;
+      background: #95CFEF;
+      margin-top: 10px;
+      overflow: auto;
+    }
+    #child {
+      position: relative;
+      width: 150px;
+      height: 200px;
+      margin: 30px;
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    overflow: <select name="" id="s"></select>
+  </div>
+  <div id="parent">
+    <div id="child"></div>
+  </div>
+
+  <script>
+  var values = ['auto', 'scroll', 'hidden'];
+  var sel = $('s');
+  for (var i=0, len=values.length; i<len; i++) {
+    var opt = document.createElement('option');
+    opt.value = values[i];
+    opt.text = values[i];
+    sel.add(opt);
+  }
+
+  sel.onchange = function() {
+    $('parent').style.overflow = this.value;
+  };
+
+  function $(id) {
+    return document.getElementById(id);
+  }
+  </script>
+
+</body>
+</html>
